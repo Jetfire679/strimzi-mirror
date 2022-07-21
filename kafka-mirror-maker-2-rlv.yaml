@@ -13,9 +13,9 @@ spec:
     bootstrapServers: dev1.us-east-2.test.vignali.rocks:9092
     config:
       # -1 means it will use the default replication factor configured in the broker
-      config.storage.replication.factor: -1
-      offset.storage.replication.factor: -1
-      status.storage.replication.factor: -1
+      config.storage.replication.factor: 3
+      offset.storage.replication.factor: 3
+      status.storage.replication.factor: 3
   mirrors:
   - sourceCluster: "my-source-cluster"
     targetCluster: "my-target-cluster"
