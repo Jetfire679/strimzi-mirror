@@ -1,0 +1,35 @@
+apiVersion: kafka.strimzi.io/v1beta2
+kind: OhioKafkaMirrorMaker2
+metadata:
+  name: ohio-mirror-maker-2
+spec:
+  version: 3.2.0
+  replicas: 1
+  connectCluster: "ohio-target-cluster"
+  clusters:
+  - alias: "ohio-source-cluster"
+    bootstrapServers: b-2.kafkatestkafkakafkaclu.h40npv.c6.kafka.us-east-2.amazonaws.com:9092,b-1.kafkatestkafkakafkaclu.h40npv.c6.kafka.us-east-2.amazonaws.com:9092,b-3.kafkatestkafkakafkaclu.h40npv.c6.kafka.us-east-2.amazonaws.com:9092
+  - alias: "ohio-target-cluster"
+    bootstrapServers: b-1.kafkatestkafkakafkacl.lecbsf.c24.kafka.us-east-1.amazonaws.com:9092,b-3.kafkatestkafkakafkacl.lecbsf.c24.kafka.us-east-1.amazonaws.com:9092,b-2.kafkatestkafkakafkacl.lecbsf.c24.kafka.us-east-1.amazonaws.com:9092
+    config:
+      # -1 means it will use the default replication factor configured in the broker
+      config.storage.replication.factor: 1
+      offset.storage.replication.factor: 1
+      offset.storage.topic.cleanup.policy: "delete"
+      status.storage.replication.factor: 1
+  mirrors:
+  - sourceCluster: "ohio-source-cluster"
+    targetCluster: "ohio-target-cluster"
+    sourceConnector:
+      config:
+        replication.factor: 1
+        offset-syncs.topic.replication.factor: 1
+        sync.topic.acls.enabled: "false"
+    heartbeatConnector:
+      config:
+        heartbeats.topic.replication.factor: 1
+    checkpointConnector:
+      config:
+        checkpoints.topic.replication.factor: 1
+    topicsPattern: ".*"
+    groupsPattern: ".*"
