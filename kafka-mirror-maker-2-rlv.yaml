@@ -8,9 +8,9 @@ spec:
   connectCluster: "my-target-cluster"
   clusters:
   - alias: "my-source-cluster"
-    bootstrapServers: dev1.us-east-1.test.vignali.rocks:9092
+    bootstrapServers: b-1.kafkatestkafkakafkacl.lecbsf.c24.kafka.us-east-1.amazonaws.com:9092,b-3.kafkatestkafkakafkacl.lecbsf.c24.kafka.us-east-1.amazonaws.com:9092,b-2.kafkatestkafkakafkacl.lecbsf.c24.kafka.us-east-1.amazonaws.com:9092
   - alias: "my-target-cluster"
-    bootstrapServers: dev1.us-east-2.test.vignali.rocks:9092
+    bootstrapServers: b-2.kafkatestkafkakafkaclu.h40npv.c6.kafka.us-east-2.amazonaws.com:9092,b-1.kafkatestkafkakafkaclu.h40npv.c6.kafka.us-east-2.amazonaws.com:9092,b-3.kafkatestkafkakafkaclu.h40npv.c6.kafka.us-east-2.amazonaws.com:9092
     config:
       # -1 means it will use the default replication factor configured in the broker
       config.storage.replication.factor: 2
