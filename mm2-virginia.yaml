@@ -5,7 +5,7 @@ metadata:
 spec:
   version: 3.2.0
   replicas: 1
-  connectCluster: "vi-connect-cluster"
+  connectCluster: "ohio-cluster"
   clusters:
   - alias: "virginia-cluster"
     bootstrapServers: b-1.kafkatestkafkakafkacl.lecbsf.c24.kafka.us-east-1.amazonaws.com:9092,b-3.kafkatestkafkakafkacl.lecbsf.c24.kafka.us-east-1.amazonaws.com:9092,b-2.kafkatestkafkakafkacl.lecbsf.c24.kafka.us-east-1.amazonaws.com:9092
