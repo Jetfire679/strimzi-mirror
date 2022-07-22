@@ -18,8 +18,8 @@ spec:
       #offset.storage.topic.cleanup.policy: "delete"
       status.storage.replication.factor: 1
   mirrors:
-  - sourceCluster: "ohio-cluster"
-    targetCluster: "virginia-cluster"
+  - sourceCluster: "virginia-cluster"
+    targetCluster: "ohio-cluster"
     sourceConnector:
       config:
         replication.factor: 1
