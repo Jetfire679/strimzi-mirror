@@ -1,0 +1,73 @@
+1  kind create cluster
+    2  kubectl cluster-info --context kind-kind
+    3  hostnamectl
+    4  clear
+    5  kubectl create namespace kafka
+    6  kubectl create -f 'https://strimzi.io/install/latest?namespace=kafka' -n kafka
+    7  kubectl get pod -n kafka --watch
+    8  kubectl logs deployment/strimzi-cluster-operator -n kafka -f
+    9  kubectl wait kafka/my-cluster --for=condition=Ready --timeout=300s -n kafka
+   10  kubectl apply -f https://strimzi.io/examples/latest/kafka/kafka-persistent-single.yaml -n kafka
+   11  kubectl wait kafka/my-cluster --for=condition=Ready --timeout=300s -n kafka
+   12  ls
+   13  git clone https://github.com/Jetfire679/strimzi-mirror.git
+   14  ls
+   15  git pull
+   16  cd strimzi-mirror/
+   17  git pull
+   18  ls
+   19  kubectl create -f ./kafka-connect-ohio.yaml -n kafka
+   20  kubectl get all -n kafka
+   21  git pull
+   22  kubectl delete -f ./kafka-connect-ohio.yaml -n kafka
+   23  kubetctl get all -n kafka
+   24  kubectl get all -n kafka
+   25  kubectl create -f ./kafka-connect-ohio.yaml -n kafka
+   26  kubectl create -f ./mm2-virginia.yaml -n kafka
+   27  kubectl get all -n kafka
+   28  kubectl delete -f ./mm2-virginia.yaml -n kafka
+   29  kubectl get all -n kafka
+   30  kubectl cluster-info --context kind-kind
+   31  kubectl get all -n kafka
+   32  kubectl delete -f kafka-connect-ohio.yaml -n kafka
+   33  git pull
+   34  kubectl create -f ./mm2-virginia.yaml -n kafka
+   35  kubectl get all -n kafka
+   36  kafka-topics --bootstrap-server dev1.us-east-2.test.vignali.rocks:9092 --list
+   37  kubectl get all -n kafka
+   38  kubectl logs deployment.apps/virginia-mm2-mirrormaker2 -n kafka -f
+   39  kafka-topics --bootstrap-server dev1.us-east-2.test.vignali.rocks:9092 --list
+   40  history create
+   41  hitory | grep create
+   42  history | grep create
+   43  kubectl delete -f ./mm2-virginia.yaml -n kafka
+   44  kubectl delete -f 'https://strimzi.io/install/latest?namespace=kafka' -n kafka
+   45  kubectl get all -n kafka
+   46  kubectl delete namespace -n kafka
+   47  kubectl get namespaces
+   48  kubectl delete namespaces kafka
+   49  kubectl create namespace oh-k
+   50  git pull
+   51  ls
+   52  clear
+   53  kubectl create -f oh-install/cluster-operator -n oh-k
+   54  kubectl get all -n oh-k
+   55  ls
+   56  kubectl create -f mm2-ohio.yaml -n oh-k
+   57  kubectl get all -n oh-k
+   58  kubectl log deployment.apps/ohio-mm2-mirrormaker2 -n oh-k -f
+   59  kubectl logs deployment.apps/ohio-mm2-mirrormaker2 -n oh-k -f
+   60  kafka-topics --bootstrap-server dev1.us-east-2.test.vignali.rocks:9092 --list
+   61  kubectl get deployments -n oh-k
+   62  kafka-topics --bootstrap-server dev1.us-east-2.test.vignali.rocks:9092 --list
+   63  for i in {1..10}; do echo -n "This is a test in loop $i "; date ; sleep 5; done
+   64  kafka-topics --bootstrap-server dev1.us-east-2.test.vignali.rocks:9092 --listfor i in {1..30}; do echo -n "looping "; kafka-topics --bootstrap-server dev1.us-east-2.test.vignali.rocks:9092 --list ; sleep 5; done
+   65  for i in {1..30}; do echo -n "looping "; kafka-topics --bootstrap-server dev1.us-east-2.test.vignali.rocks:9092 --list ; sleep 5; done
+   66  for i in {1..30}; echo =========== ; do echo -n "looping $i "; echo =========== ; kafka-topics --bootstrap-server dev1.us-east-1.test.vignali.rocks:9092 --list ; sleep 5; done
+   67  for i in {1..30}; do echo =========== ; echo -n "looping $i "; echo =========== ; kafka-topics --bootstrap-server dev1.us-east-1.test.vignali.rocks:9092 --list ; sleep 5; done
+   68  for i in {1..30}; echo -n "============= Looping $i "; kafka-topics --bootstrap-server dev1.us-east-1.test.vignali.rocks:9092 --list ; sleep 5; done
+   69  for i in {1..30}; do echo -n "============= Looping $i "; kafka-topics --bootstrap-server dev1.us-east-1.test.vignali.rocks:9092 --list ; sleep 5; done
+   70  for i in {1..30}; do echo -n "===== Looping $i =====>" ; kafka-topics --bootstrap-server dev1.us-east-2.test.vignali.rocks:9092 --list ; sleep 5; done
+   71  kafka-console-consumer --bootstrap-server dev1.us-east-2.test.vignali.rocks:9092 --topic virginia-cluster.virginia3 --from-beginning
+   72  history
+   73  history >> commands.txt
