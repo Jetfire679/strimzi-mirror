@@ -1,0 +1,19 @@
+sed -i 's/namespace: .*/namespace: <my_cluster_operator_namespace>/' install/cluster-operator/*RoleBinding*.yaml
+
+
+kubectl create namespace vi-k
+kubectl create namespace oh-k
+
+sed -i 's/namespace: .*/namespace: vi-k/' vi-install/cluster-operator/*RoleBinding*.yaml
+sed -i 's/namespace: .*/namespace: oh-k/' oh-install/cluster-operator/*RoleBinding*.yaml
+
+kubectl create -f vi-install/cluster-operator -n vi-k
+
+kubectl create -f oh-install/cluster-operator -n oh-k
+
+kubectl apply -f examples/mirror-maker/kafka-mirror-maker-2.yaml
+
+for i in {1..10}; do echo -n "This is a test in loop $i "; date ; sleep 5; done
+
+for i in {1..30}; do echo -n "===== Looping $i =====>" ; kafka-topics --bootstrap-server dev1.us-east-1.test.vignali.rocks:9092 --list ; sleep 5; done
+for i in {1..30}; do echo -n "===== Looping $i =====>" ; kafka-topics --bootstrap-server dev1.us-east-2.test.vignali.rocks:9092 --list ; sleep 5; done
