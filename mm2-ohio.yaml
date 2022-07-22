@@ -5,7 +5,7 @@ metadata:
 spec:
   version: 3.2.0
   replicas: 1
-  connectCluster: "virginia-cluster"
+  connectCluster: "oh-cluster"
   clusters:
   - alias: "virginia-cluster"
     bootstrapServers: b-1.kafkatestkafkakafkacl.lecbsf.c24.kafka.us-east-1.amazonaws.com:9092,b-3.kafkatestkafkakafkacl.lecbsf.c24.kafka.us-east-1.amazonaws.com:9092,b-2.kafkatestkafkakafkacl.lecbsf.c24.kafka.us-east-1.amazonaws.com:9092
@@ -18,8 +18,8 @@ spec:
       #offset.storage.topic.cleanup.policy: "delete"
       status.storage.replication.factor: 1
   mirrors:
-  - sourceCluster: "ohio-cluster"
-    targetCluster: "virginia-cluster"
+  - sourceCluster: "virginia-cluster"
+    targetCluster: "ohio-cluster"
     sourceConnector:
       config:
         replication.factor: 1
