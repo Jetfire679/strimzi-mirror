@@ -25,7 +25,9 @@ spec:
         replication.factor: 1
         offset-syncs.topic.replication.factor: 1
         sync.topic.acls.enabled: "false"
-        refresh.topics.interval.seconds: 30
+        refresh.topics.interval.seconds: 5
+        sync.topic.configs.interval.seconds: 5
+        refresh.groups.interval.seconds: 5
     heartbeatConnector:
       config:
         heartbeats.topic.replication.factor: 1
