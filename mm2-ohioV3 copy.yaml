@@ -1,0 +1,49 @@
+apiVersion: kafka.strimzi.io/v1beta2
+kind: KafkaMirrorMaker2
+metadata:
+  name: ohio-mm2
+spec:
+  version: 3.2.0
+  replicas: 1
+  connectCluster: "virginia-cluster"
+  clusters:
+  - alias: "virginia-cluster"
+    bootstrapServers: dev1.us-east-1.test.vignali.rocks:9092
+    config:
+      config.storage.replication.factor: 2
+      offset.sotrage.replication.factor: 2
+      status.storage.replication.factor: 2
+      enable.ssl.certificate.verification: flase
+  - alias: "ohio-cluster"
+    bootstrapServers: dev1.us-east-2.test.vignali.rocks:9092
+    config:
+      config.storage.replication.factor: 2
+      offset.sotrage.replication.factor: 2
+      status.storage.replication.factor: 2
+      enable.ssl.certificate.verification: flase
+  mirrors:
+  - sourceCluster: "ohio-cluster"
+    targetCluster: "virginia-cluster"
+    sourceConnector:
+      config:
+        replication.factor: 3
+        offset-syncs.topic.replication.factor: 3
+        sync.topic.acls.interval.seconds: 5
+        refresh.topics.interval.seconds: 5
+        sync.topic.configs.interval.seconds: 5
+        refresh.groups.interval.seconds: 5
+    heartbeatConnector:
+      config:
+        heartbeats.topic.replication.factor: 3
+        replication.factor: 3
+        emit.heartbeats.interval.seconds: 20
+    checkpointConnector:
+      config:
+        checkpoints.topic.replication.factor: 3
+        replication.factor: 3
+        emit.checkpoints.interval.seconds: 5
+        emit.checkpoints.enabled: true
+        sync.group.offests.enabled: "true"
+        sync.group.offests.interval.seconds: 10
+    topicsPattern: ".*"
+    groupsPattern: ".*"
