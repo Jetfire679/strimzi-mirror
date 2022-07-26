@@ -9,7 +9,7 @@ metadata:
 subjects:
   - kind: ServiceAccount
     name: strimzi-cluster-operator
-    namespace: virginiacluster
+    namespace: kafkaeast1
 roleRef:
   kind: ClusterRole
   name: strimzi-kafka-broker
