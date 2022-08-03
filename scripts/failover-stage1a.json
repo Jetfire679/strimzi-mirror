@@ -1,0 +1,36 @@
+{
+    "Comment": "Delete single record set",
+    "Changes": [
+        {
+            "Action": "DELETE",
+            "ResourceRecordSet": {
+                "Name": "msk.test.vignali.rocks.",
+                "Type": "CNAME",
+                "TTL": 300,
+                "ResourceRecords": [
+                    {
+                        "Value": "dev1.us-east-1.test.vignali.rocks"
+                    }
+                ]                
+            }
+        }
+    ]
+}
+{
+    "Comment": "Delete single record set",
+    "Changes": [
+        {
+            "Action": "DELETE",
+            "ResourceRecordSet": {
+                "Name": "schema.test.vignali.rocks.",
+                "Type": "CNAME",
+                "TTL": 300,
+                "ResourceRecords": [
+                    {
+                        "Value": "dev1.us-east-1.test.vignali.rocks"
+                    }
+                ]                
+            }
+        }
+    ]
+}
